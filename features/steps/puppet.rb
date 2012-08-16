@@ -59,6 +59,10 @@ Given /^it is a virtual node$/ do
   @facts['processor0'] = "QEMU Virtual CPU version 0.11.0"
 end
 
+Given /puppet log level is 'info'/ do
+  Puppet::Util::Log.level = :info
+end
+
 When /^I compile the catalog$/ do
   steps %Q{ When I compile its catalog }
 end
