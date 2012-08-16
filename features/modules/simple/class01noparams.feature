@@ -8,4 +8,4 @@ Feature: class01noparams
      And puppet log level is 'info'
     When I compile the catalog
     Then there is a catalog
-    Then package "blub" should be present
+    Then package "some-package" should be present

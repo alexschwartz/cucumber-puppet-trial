@@ -16,7 +16,6 @@ end
 Then /^package "([^\"]*)" should be present$/ do |package|
   steps %Q{
     Then there should be a resource "Package[#{package}]"
-    And the state should not be "abscent"
   }
 end
 
