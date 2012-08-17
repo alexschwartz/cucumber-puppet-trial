@@ -5,7 +5,6 @@ Feature: General policy for all catalogs
 
   Scenario Outline: Compile and verify catalog
     Given a node specified by "features/yaml/<hostname>.example.com.yaml"
-     And puppet log level is 'info'
     When I compile the catalog
     Then there is a catalog
      And compilation should succeed

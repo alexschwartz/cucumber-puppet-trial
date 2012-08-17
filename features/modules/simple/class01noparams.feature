@@ -5,7 +5,6 @@ Feature: class01noparams
 
   Scenario: <title>
     Given a node of class "simple::class01noparams"
-     And puppet log level is 'info'
     When I compile the catalog
     Then there is a catalog
      And compilation should succeed

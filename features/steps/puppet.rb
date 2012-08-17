@@ -156,8 +156,6 @@ end
 
 Then /^there is a catalog$/ do
   ##puts "catalog: #{@catalog.inspect}"
-  
-  ##puts "\n\n\n vertices: #{@catalog.vertices.inspect}\n"
 end
 
 
@@ -167,7 +165,6 @@ Then /^all classes should be found$/ do
   @catalog.vertices.each do |vertex|
       key = vertex.name.downcase.to_s
       classResolved.push(key) if key =~ /^class\// 
-      puts "#{key}" if key =~ /^class\// 
   end
     
   @catalog.classes.each do |klass|
