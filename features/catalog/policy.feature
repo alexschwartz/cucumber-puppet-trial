@@ -3,6 +3,7 @@ Feature: General policy for all catalogs
   As a manifest developer
   I want all catalogs to obey some general rules
 
+  @ExpectedToFail
   Scenario Outline: Compile and verify catalog
     Given a node specified by "features/yaml/<hostname>.example.com.yaml"
     When I compile the catalog
