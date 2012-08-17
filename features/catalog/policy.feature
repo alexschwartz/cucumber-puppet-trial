@@ -5,9 +5,12 @@ Feature: General policy for all catalogs
 
   Scenario Outline: Compile and verify catalog
     Given a node specified by "features/yaml/<hostname>.example.com.yaml"
-    When I compile its catalog
-    Then compilation should succeed
-    And all resource dependencies should resolve
+     And puppet log level is 'info'
+    When I compile the catalog
+    Then there is a catalog
+     And compilation should succeed
+     And all classes should be found
+     And all resource dependencies should resolve
 
     Examples:
       | hostname  |

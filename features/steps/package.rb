@@ -18,7 +18,3 @@ Then /^package "([^\"]*)" should be present$/ do |package|
     Then there should be a resource "Package[#{package}]"
   }
 end
-
-Then /^there is a catalog$/ do
-  puts "catalog: #{@catalog.inspect}"
-end

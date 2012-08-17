@@ -8,4 +8,6 @@ Feature: class01noparams
      And puppet log level is 'info'
     When I compile the catalog
     Then there is a catalog
-    Then package "some-package" should be present
+     And compilation should succeed
+     And all classes should be found
+     And package "some-package" should be present

@@ -152,3 +152,27 @@ Then /^there should be no resource "([^\"]*)"$/ do |res|
   @resource = resource(res)
   fail("#{@resource} in catalog although it shouldn't be") if @resource
 end
+
+
+Then /^there is a catalog$/ do
+  ##puts "catalog: #{@catalog.inspect}"
+  
+  ##puts "\n\n\n vertices: #{@catalog.vertices.inspect}\n"
+end
+
+
+Then /^all classes should be found$/ do
+
+  classResolved = []
+  @catalog.vertices.each do |vertex|
+      key = vertex.name.downcase.to_s
+      classResolved.push(key) if key =~ /^class\// 
+      puts "#{key}" if key =~ /^class\// 
+  end
+    
+  @catalog.classes.each do |klass|
+      searchTerm = "Class/#{klass}".downcase.to_s
+      fail "The class '#{klass}' is found during compilation" unless classResolved.include?(searchTerm)
+  end
+end
+
