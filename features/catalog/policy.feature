@@ -9,7 +9,7 @@ Feature: General policy for all catalogs
     When I compile the catalog
     Then there is a catalog
      And compilation should succeed
-     And all classes should be found
+     And there is a class not found
      And all resource dependencies should resolve
 
     Examples:

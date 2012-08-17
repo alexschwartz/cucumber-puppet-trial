@@ -160,7 +160,6 @@ end
 
 
 Then /^all classes should be found$/ do
-
   classResolved = []
   @catalog.vertices.each do |vertex|
       key = vertex.name.downcase.to_s
@@ -171,5 +170,21 @@ Then /^all classes should be found$/ do
       searchTerm = "Class/#{klass}".downcase.to_s
       fail "The class '#{klass}' is found during compilation" unless classResolved.include?(searchTerm)
   end
+end
+
+Then /^there is a class not found$/ do
+  classResolved = []
+  @catalog.vertices.each do |vertex|
+      key = vertex.name.downcase.to_s
+      classResolved.push(key) if key =~ /^class\// 
+  end
+    
+  notFound=false
+  @catalog.classes.each do |klass|
+      searchTerm = "Class/#{klass}".downcase.to_s
+      notFound=true unless classResolved.include?(searchTerm)
+  end
+  
+  fail "All classes are found" unless notFound
 end
 
