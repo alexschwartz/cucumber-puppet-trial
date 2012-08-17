@@ -1,0 +1,15 @@
+WHY THIS module FOLDER?
+
+We had to add this module folder to fake the expected structure for cucumber_puppet.
+
+This tool expects the following structure:
+
+ 
+   - features
+   - modules
+      - <<module name>>
+        - manifests
+        - templates
+        - files
+
+
